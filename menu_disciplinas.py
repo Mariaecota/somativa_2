@@ -77,27 +77,26 @@ def opcaoalteracaodados():
     for codigo in lista_disciplina:
         if codigo['codigo'] == buscar_codigo:
             print("\nDisciplina encontrada, digite os novos dados abaixo:")
-            novonome = input("\nDigite o novo nome (deixe em branco para manter o mesmo): ")
+            
 
             while True:
                 try: 
-                    novocodigo = int(input("Digite a nova matrícula (ou preencha com a anterior para manter): "))
+                    novocodigo = int(input("Digite a nova matrícula: "))
                     break
                 except ValueError:
                     print("\nValor inválido")
             
-
-            if novonome:
-                codigo['nome'] = novonome
-            if novocodigo:
-                codigo['codigo'] = novocodigo
+            novonome = input("\nDigite o novo nome: ")
+            
+            codigo['nome'] = novonome
+            codigo['codigo'] = novocodigo
         
             print("\nDados alterados com sucesso")
             achou = True
             break   
 
     if not achou:
-        print("\nDisciplina não localizada")
+        print("\nDisciplina naaaaão localizada")
 
  
     me.salvar(lista_disciplina, 'disciplina.json')
@@ -155,5 +154,3 @@ Digite a opção desejada: """)
             break
         else:
             print("Opção invalida")
-
-menu_2_disciplina()

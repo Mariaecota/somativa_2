@@ -99,27 +99,25 @@ def opcaoalteracaodados():
     for matricula in lista_estudantes:
         if matricula['matricula'] == buscar_matricula:
             print("\nAluno encontrado, digite os novos dados abaixo:")
-            novonome = input("\nDigite o novo nome (deixe em branco para manter o mesmo): ")
-        else:
-            print("Codigo não encontrado")
-            break
-
-        while True:
-            try: 
-                novamatricula = int(input("\nDigite a nova matrícula (ou preencha com a anterior para manter): "))
-                break
-            except ValueError:
-                print("\nValor inválido")
-        novocpf = input("\nDigite o novo CPF (deixe em branco para manter o mesmo): ")
+            
+       
+            while True:
+                try: 
+                    novamatricula = int(input("\nDigite a nova matrícula : "))
+                    break
+                except ValueError:
+                    print("\nValor inválido")
+            novonome = input("\nDigite o novo nome: ")
+            novocpf = input("\nDigite o novo CPF: ")
 
         
-        matricula['nome'] = novonome
-        matricula['matricula'] = novamatricula
-        matricula['cpf'] = novocpf
-        
-        print("\nDados alterados com sucesso")
-        achou = True
-        break   
+            matricula['nome'] = novonome
+            matricula['matricula'] = novamatricula
+            matricula['cpf'] = novocpf
+            
+            print("\nDados alterados com sucesso")
+            achou = True
+            break   
 
     if not achou:
         print("\nAluno não localizado")
@@ -181,4 +179,3 @@ Digite a opção desejada: """)
         else:
             print("Opção invalida")
 
-menu_2_estudante()

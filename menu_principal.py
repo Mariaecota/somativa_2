@@ -39,9 +39,7 @@ def menugeral():
             tr.menu_2_turmas()
 
         elif opcao == "5":
-            print("MENU DE MATRICULAS \n\n\n[EM CONSTRUÇÃO]")
-            input("Pressione ENTER para continuar")
-
+            mt.menu_2_matriculas() 
         elif opcao == "9":
             break
         else:

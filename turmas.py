@@ -1,6 +1,6 @@
 # Funções ----------------------------------------------------------------------------------------------------------
 import menu_estudante as me
-
+# verificar se o código existe, se existir, não funciona
 def verificar_codigo(codigo, lista, x): 
     while True:
         try: 
@@ -15,7 +15,7 @@ def verificar_codigo(codigo, lista, x):
         except ValueError:
             print("\nValor inválido")
     return matricula
-
+# verificar se o código existe, se existir, funciona
 def verificar_codigo2(codigo, lista, x): 
     while True:
         try: 
@@ -31,7 +31,6 @@ def verificar_codigo2(codigo, lista, x):
         except ValueError:
             print("\nValor inválido")
     return matricula
-
 
 def opcaoadicionar():
 
@@ -59,10 +58,6 @@ def opcaoadicionar():
 
         lista_turmas.append(dados_turma)
         me.salvar(lista_turmas, 'turmas.json')
-
-
-
-
 
 def opcaolista():
 
@@ -112,7 +107,7 @@ def opcaoalteracaodados():
     achou = False
     for codigo in lista_turmas:
         if codigo['codigo_turma'] == buscar_codigo:
-            print("\Turma encontrada, digite os novos dados abaixo:")
+            print("\nTurma encontrada, digite os novos dados abaixo:")
             novaturma = int(input("\nDigite a nova matrícula (ou preencha com a anterior para manter): "))
         
             
@@ -120,19 +115,21 @@ def opcaoalteracaodados():
 
             cod_disc =  verificar_codigo2("disciplina", lista_disciplinas, "codigo")
 
-
+        if cod_prof == 0 or cod_disc == 0:
+       
             codigo['codigo_turma'] = novaturma
             codigo['codigo_professor'] = cod_prof
             codigo['codigo_disciplina'] = cod_disc
 
-            print("\nDados alterados com sucesso")
             achou = True   
 
     if not achou:
         print("\nDisciplina não localizada")
-
-
-    me.salvar(lista_turmas, 'turmas.json')
+    elif cod_prof == 0 or cod_disc == 0:
+        pass
+    else:
+        print("\nDados alterados com sucesso")
+        me.salvar(lista_turmas, 'turmas.json')
 
 #  Exibição do menu ------------------------------------------------------------------------------------------------
 
@@ -188,5 +185,3 @@ Digite a opção desejada: """)
         else:
             print("Opção invalida")
 
-
-menu_2_turmas()

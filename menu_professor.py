@@ -81,22 +81,21 @@ def opcaoalteracaodados():
     for matricula in lista_professores:
         if matricula['codigo_professor'] == buscar_matricula:
             print("\nProfessor encontrado, digite os novos dados abaixo:")
-            novonome = input("Digite o novo nome (deixe em branco para manter o mesmo): ")
+            
 
             while True:
                 try: 
-                    novamatricula = int(input("Digite o codigo (ou preencha com a anterior para manter): "))
+                    novamatricula = int(input("Digite o novo codigo: "))
                     break
                 except ValueError:
                     print("Valor inválido")
-            novocpf = input("Digite o novo CPF (deixe em branco para manter o mesmo): ")
+            novonome = input("Digite o novo nome: ")
+            novocpf = input("Digite o novo CPF: ")
 
-            if novonome:
-                matricula['nome'] = novonome
-            if novamatricula:
-                matricula['codigo_professor'] = novamatricula
-            if novocpf:
-                matricula['cpf'] = novocpf
+            
+            matricula['nome'] = novonome
+            matricula['codigo_professor'] = novamatricula
+            matricula['cpf'] = novocpf
             print("\nDados alterados com sucesso")
             achou = True
             break   
@@ -161,4 +160,3 @@ Digite a opção desejada: """)
         else:
             print("Opção invalida")
 
-menu_2_professor()
